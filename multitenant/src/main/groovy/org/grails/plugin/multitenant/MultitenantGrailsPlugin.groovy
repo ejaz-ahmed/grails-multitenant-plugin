@@ -45,7 +45,7 @@ Tenants are resolved using spring security. It does not support URL based tenant
 
     void doWithDynamicMethods() {
         for (domainClass in grailsApplication.domainClasses) {
-            if (domainClass.clazz in Multitenant) {
+            if (domainClass.clazz in TenantIdentifier) {
                 MultitenantDomainUtils.addDomainClassMethods(domainClass.clazz, getApplicationContext())
             }
 
