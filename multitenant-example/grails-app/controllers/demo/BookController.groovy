@@ -14,7 +14,9 @@ class BookController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Book.list(params), model:[bookCount: Book.count()]
+        Book.withoutTenantId {
+            respond Book.list(params), model: [bookCount: Book.count()]
+        }
     }
 
     def show(Book book) {

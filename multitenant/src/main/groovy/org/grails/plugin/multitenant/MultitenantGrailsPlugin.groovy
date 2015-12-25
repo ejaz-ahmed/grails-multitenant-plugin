@@ -1,6 +1,8 @@
 package org.grails.plugin.multitenant
 
+import grails.core.GrailsClass
 import grails.plugins.*
+import org.grails.core.artefact.DomainClassArtefactHandler
 
 class MultitenantGrailsPlugin extends Plugin {
 
@@ -42,7 +44,12 @@ Tenants are resolved using spring security. It does not support URL based tenant
 //    def scm = [ url: "http://svn.codehaus.org/grails-plugins/" ]
 
     void doWithDynamicMethods() {
+        for (domainClass in grailsApplication.domainClasses) {
+            if (domainClass.clazz in Multitenant) {
+                MultitenantDomainUtils.addDomainClassMethods(domainClass.clazz, getApplicationContext())
+            }
 
+        }
     }
 
 }
