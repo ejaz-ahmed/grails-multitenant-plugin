@@ -2,10 +2,11 @@ package demo.auth
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
+import org.grails.plugin.multitenant.TenantIdentifier
 
 @EqualsAndHashCode(includes = 'username')
 @ToString(includes = 'username', includeNames = true, includePackage = false)
-class User implements Serializable {
+class User implements Serializable, TenantIdentifier {
 
     private static final long serialVersionUID = 1
 
@@ -17,8 +18,6 @@ class User implements Serializable {
     boolean accountExpired
     boolean accountLocked
     boolean passwordExpired
-    Long userTenantId
-
 
     User(String username, String password) {
         this()

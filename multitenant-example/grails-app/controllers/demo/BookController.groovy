@@ -1,5 +1,7 @@
 package demo
 
+import demo.auth.User
+
 import static org.springframework.http.HttpStatus.*
 
 import grails.transaction.Transactional
@@ -14,7 +16,7 @@ class BookController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        Book.withoutTenantId {
+        User.withTenantId(2) {
             respond Book.list(params), model: [bookCount: Book.count()]
         }
     }
