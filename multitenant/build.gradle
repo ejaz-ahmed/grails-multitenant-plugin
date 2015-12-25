@@ -11,13 +11,27 @@ buildscript {
     }
 }
 
+
 plugins {
     id "io.spring.dependency-management" version "0.5.4.RELEASE"
     id "com.jfrog.bintray" version "1.2"
 }
 
-version "0.1-SNAPSHOT"
+version "0.1"
 group "org.grails.plugins"
+
+bintray {
+    pkg {
+        userOrg = 'troutbird' // If you want to publish to an organization
+        name = "$project.name"
+        issueTrackerUrl = "https://github.com/ejaz-ahmed/grails-multitenant-plugin/issues"
+        vcsUrl = "https://github.com/ejaz-ahmed/grails-multitenant-plugin"
+        version {
+            attributes = ['grails-plugin': "$project.group:$project.name"]
+            name = project.version
+        }
+    }
+}
 
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
