@@ -22,8 +22,8 @@ class BookController {
         respond Book.list(params), model: [bookCount: Book.count()]
     }
 
-    def show(Book book) {
-        respond book
+    def show(Integer id) {
+        respond Book.findById(id)
     }
 
     def create() {
