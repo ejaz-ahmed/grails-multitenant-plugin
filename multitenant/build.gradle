@@ -23,12 +23,18 @@ group "org.grails.plugins"
 bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
+    publications = ['maven']
+    publish = true
 
     pkg {
+        repo = 'plugins'
         userOrg = 'troutbird' // If you want to publish to an organization
         name = "$project.name"
+        websiteUrl = "https://ejaz-ahmed.github.io/grails-multitenant-plugin"
         issueTrackerUrl = "https://github.com/ejaz-ahmed/grails-multitenant-plugin/issues"
         vcsUrl = "https://github.com/ejaz-ahmed/grails-multitenant-plugin"
+        licenses = project.hasProperty('license') ? [project.license] : ['Apache-2.0']
+        publicDownloadNumbers = true
         version {
             attributes = ['grails-plugin': "$project.group:$project.name"]
             name = project.version
@@ -44,7 +50,7 @@ apply plugin: "org.grails.grails-plugin"
 apply plugin: "org.grails.grails-gsp"
 // Used for publishing to central repository, remove if not needed
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
-apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
+//apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
 
 ext {
     grailsVersion = project.grailsVersion
