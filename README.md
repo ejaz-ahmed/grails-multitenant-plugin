@@ -5,8 +5,12 @@
 This plugin adds multitenant support for grails 3 based on hibernate filters. Tenants are resolved using spring security. It does not support URL based tenant resolver for the time being.
 
 ## Installation
-Plugin is not yet published to grails central repo. You can configure it using gradle multiproject setup as done in example found in the above repo.
 
+Add following dependency in build.gradle
+
+```
+compile 'org.grails.plugins:multitenant:0.1'
+```
 Add configClass attribute in application.yml under dataSource section like this:
 
 ```
