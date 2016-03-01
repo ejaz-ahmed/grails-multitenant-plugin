@@ -7,9 +7,7 @@ import org.grails.orm.hibernate.cfg.HibernateMappingContextConfiguration
 import org.hibernate.Session
 import org.hibernate.engine.spi.FilterDefinition
 import grails.core.GrailsApplication
-import org.grails.orm.hibernate.cfg.GrailsAnnotationConfiguration
 import org.hibernate.MappingException
-import org.springframework.beans.factory.BeanFactory
 
 
 class HibernateMultitenantConfiguration extends HibernateMappingContextConfiguration {
@@ -24,7 +22,7 @@ class HibernateMultitenantConfiguration extends HibernateMappingContextConfigura
 //        this.grailsApplication = app
 //    }
 
-    @Override
+    
     protected void secondPassCompile() throws MappingException {
         if (configLocked) {
             return

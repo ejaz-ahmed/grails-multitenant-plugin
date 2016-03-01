@@ -36,6 +36,7 @@ Thumbs.db
 .DS_Store
 .gradle
 build/
+.nb-gradle
 /META-INF
 .idea
 *.iml
@@ -44,4 +45,3 @@ build/
 .project
 .settings
 .classpath
-/.nb-gradle/
