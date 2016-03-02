@@ -12,6 +12,7 @@ dataSource:
     driverClassName: org.h2.Driver
     username: sa
     password:
+    configClass: org.grails.plugin.multitenant.HibernateMultitenantConfiguration
 
 environments:
     development:
