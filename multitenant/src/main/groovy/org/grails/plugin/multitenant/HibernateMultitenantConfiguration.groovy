@@ -3,25 +3,26 @@ package org.grails.plugin.multitenant
 /**
  * Created by ejaz on 12/25/15.
  */
-import org.grails.orm.hibernate.cfg.GrailsAnnotationConfiguration
+import org.grails.orm.hibernate.cfg.HibernateMappingContextConfiguration
 import org.hibernate.Session
 import org.hibernate.engine.spi.FilterDefinition
 import grails.core.GrailsApplication
 import org.hibernate.MappingException
 
 
-class HibernateMultitenantConfiguration extends GrailsAnnotationConfiguration {
+class HibernateMultitenantConfiguration extends HibernateMappingContextConfiguration {
 
-    private GrailsApplication grailsApplication
+    private GrailsApplication grailsApplication = grails.util.Holders.findApplication()
     private boolean configLocked
 
-    @Override
-    void setGrailsApplication(GrailsApplication grailsApplication) {
-        super.setGrailsApplication grailsApplication
-        this.grailsApplication = grailsApplication
-    }
+//    @Override
+//    void setApplicationContext(org.springframework.context.ApplicationContext applicationContext){
+//        GrailsApplication app = grails.util.Holders.findApplication()
+//        app.setApplicationContext(applicationContext)
+//        this.grailsApplication = app
+//    }
 
-    @Override
+    
     protected void secondPassCompile() throws MappingException {
         if (configLocked) {
             return
@@ -30,7 +31,7 @@ class HibernateMultitenantConfiguration extends GrailsAnnotationConfiguration {
         super.secondPassCompile()
 
         this.addFilterDefinition new FilterDefinition("tenant", "tenant_id = :tenant", [tenant: this.typeResolver.basic('long')])
-        for (domainClass in grailsApplication.domainClasses) {
+        for (domainClass in grailsApplication.getArtefacts("domain")) {
             if (domainClass.clazz in Multitenant) {
                 def entity = this.getClassMapping(domainClass.fullName)
                 entity.addFilter("tenant", "tenant_id = :tenant", false, null, null)

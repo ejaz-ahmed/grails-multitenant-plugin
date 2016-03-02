@@ -36,6 +36,7 @@ Thumbs.db
 .DS_Store
 .gradle
 build/
+.nb-gradle
 /META-INF
 .idea
 *.iml
