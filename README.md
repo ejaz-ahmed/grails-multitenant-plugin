@@ -4,6 +4,9 @@
 # grails-multitenant-plugin - Sponsored by SaaSMax
 This plugin is sponsored by SaaSMax Inc. It adds multitenant support for grails 3 applications based on hibernate filters. Tenants are resolved using spring security. It does not support URL based tenant resolver for the time being however it is in pipeline and will be implemented soon.
 
+## Note
+Only branch grails3.0.xhibernate4 is working. Rest of branches are for GORM5 which has broken the way hibernate filters are applied. I'll be fixing this soon.
+
 ## Installation
 
 Add following dependency in build.gradle
