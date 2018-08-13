@@ -106,4 +106,4 @@ User.withTenantId(tenantResolverService.resolveTenant()){
 ```
 
 # About ipgeolocation.io
-[IP Geolocation's](https://saasmax.com) IP intelligence APIs help developer's find out Geolocation, Tim Zone, Local Currency and much more from just an IP address. For more information checkout [document page](https://ipgeolocation.io)
+[IP Geolocation's](https://ipgeolocation.io) IP intelligence APIs help developer's find out Geolocation, Tim Zone, Local Currency and much more from just an IP address. For more information checkout [document page](https://ipgeolocation.io/documentation)
