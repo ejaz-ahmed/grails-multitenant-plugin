@@ -1,11 +1,12 @@
 ﻿# TOC
 
 
-# grails-multitenant-plugin - Sponsored by SaaSMax
-This plugin is sponsored by SaaSMax Inc. It adds multitenant support for grails 3 applications based on hibernate filters. Tenants are resolved using spring security. It does not support URL based tenant resolver for the time being however it is in pipeline and will be implemented soon.
+# grails-multitenant-plugin
+This plugin is sponsored by [IP Geolocation](https://ipgeolocation.io). It adds multitenant support for grails 3 applications based on hibernate filters. Tenants are resolved using spring security. 
 
 ## Note
-Only branch grails3.0.xhibernate4 is working. Rest of branches are for GORM5 which has broken the way hibernate filters are applied. I'll be fixing this soon.
+Only branch grails3.0.xhibernate4 is working. Rest of branches are for GORM5 which has broken the way hibernate filters are applied. So they won't work. Also, this plugin works only for Grails 3.0 and 3.1. For later versions of grails, use GORM's built in multi-tenancy support. 
+The work on this plugin has been stopped in favor of Grails internal support for Multi-tenant architecture.
 
 ## Installation
 
@@ -104,5 +105,5 @@ User.withTenantId(tenantResolverService.resolveTenant()){
 }
 ```
 
-# About SaaSMax
-[SaaSMAX](https://saasmax.com) is the growth engine for SaaS companies and their resellers. Our mission is all about recurring SaaS commissions.
+# About ipgeolocation.io
+[IP Geolocation's](https://saasmax.com) IP intelligence APIs help developer's find out Geolocation, Tim Zone, Local Currency and much more from just an IP address. For more information checkout [document page](https://ipgeolocation.io)
